@@ -51,7 +51,7 @@ export const fees: FeeRow[] = [
   r("Teeth Whitening (Trays and Gel Bundle)", "£399.00", "N/A", "N/A"),
   r("Teeth Whitening Trays ONLY, U&L", "£295.00", "N/A", "N/A"),
   r("Teeth Whitening 3ml Refill Syringe, from", "£30.00", "N/A", "N/A"),
-  r("Teeth Whitening 1.2ml 4x pack, from", "Priced to order", "N/A", "N/A"),
+  r("Teeth Whitening 1.2ml 4x pack, from", "Priced to order", "", ""),
   r("Sports Mouthguard, from", "£134.20", "N/A", "N/A"),
   r("Anti-Grinding/Cleanching Guard, from", "£126.00", "£113.40", "£12.60"),
 ];
