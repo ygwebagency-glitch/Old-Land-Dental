@@ -26,7 +26,7 @@ export function CtaBand({ title = "Ready to book your visit?", className }: { ti
 /** Verbatim body paragraphs with staggered reveal */
 export function Prose({ paragraphs, className }: { paragraphs: React.ReactNode[]; className?: string }) {
   return (
-    <div className={cn("prose-body text-[1.08rem] text-ink", className)}>
+    <div className={cn("max-w-[68ch] space-y-5 text-[1.08rem] text-ink", className)}>
       {paragraphs.map((p, i) => (
         <Reveal key={i} delay={Math.min(i, 6) * 0.06}>
           <p className={i === 0 ? "text-[1.2rem] leading-relaxed text-charcoal" : undefined}>{p}</p>
