@@ -412,3 +412,12 @@
     scroll-behavior: auto !important;
   }
 }
+
+@utility bg-hero-mobile {
+  background-image: linear-gradient(
+    0deg,
+    var(--charcoal-deep) 8%,
+    oklch(0.312 0.005 248 / 70%) 45%,
+    oklch(0.312 0.005 248 / 15%) 80%
+  );
+}

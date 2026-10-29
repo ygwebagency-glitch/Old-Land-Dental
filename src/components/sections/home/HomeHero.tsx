@@ -33,7 +33,7 @@ export function HomeHero() {
         <SmartImage imageKey="heroHome" fill priority sizes="100vw" />
       </motion.div>
       <div aria-hidden className="absolute inset-0 -z-10 bg-hero-gradient max-md:hidden" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,var(--charcoal-deep)_8%,oklch(0.312_0.005_248/70%)_45%,oklch(0.312_0.005_248/15%)_80%)] md:hidden" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-hero-mobile md:hidden" />
 
       <motion.div className="container-site w-full pt-36 pb-14 md:pt-28 md:pb-0" style={reduced ? undefined : { y: contentY, opacity: contentO }}>
         <div className="max-w-[40rem]">
