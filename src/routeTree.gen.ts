@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutThePracticeIndexRouteImport } from './routes/about-the-practice.index'
+import { Route as AboutThePracticeLinksRouteImport } from './routes/about-the-practice.links'
+import { Route as AboutThePracticeLocationRouteImport } from './routes/about-the-practice.location'
+import { Route as AboutThePracticeSurgeryHoursRouteImport } from './routes/about-the-practice.surgery-hours'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutThePracticeIndexRoute = AboutThePracticeIndexRouteImport.update({
+  id: '/about-the-practice/',
+  path: '/about-the-practice/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutThePracticeLinksRoute = AboutThePracticeLinksRouteImport.update({
+  id: '/about-the-practice/links',
+  path: '/about-the-practice/links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutThePracticeLocationRoute =
+  AboutThePracticeLocationRouteImport.update({
+    id: '/about-the-practice/location',
+    path: '/about-the-practice/location',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AboutThePracticeSurgeryHoursRoute =
+  AboutThePracticeSurgeryHoursRouteImport.update({
+    id: '/about-the-practice/surgery-hours',
+    path: '/about-the-practice/surgery-hours',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-the-practice/links': typeof AboutThePracticeLinksRoute
+  '/about-the-practice/location': typeof AboutThePracticeLocationRoute
+  '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/about-the-practice/': typeof AboutThePracticeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-the-practice/links': typeof AboutThePracticeLinksRoute
+  '/about-the-practice/location': typeof AboutThePracticeLocationRoute
+  '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/about-the-practice': typeof AboutThePracticeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-the-practice/links': typeof AboutThePracticeLinksRoute
+  '/about-the-practice/location': typeof AboutThePracticeLocationRoute
+  '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/about-the-practice/': typeof AboutThePracticeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-the-practice/links'
+    | '/about-the-practice/location'
+    | '/about-the-practice/surgery-hours'
+    | '/about-the-practice/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about-the-practice/links'
+    | '/about-the-practice/location'
+    | '/about-the-practice/surgery-hours'
+    | '/about-the-practice'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-the-practice/links'
+    | '/about-the-practice/location'
+    | '/about-the-practice/surgery-hours'
+    | '/about-the-practice/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutThePracticeLinksRoute: typeof AboutThePracticeLinksRoute
+  AboutThePracticeLocationRoute: typeof AboutThePracticeLocationRoute
+  AboutThePracticeSurgeryHoursRoute: typeof AboutThePracticeSurgeryHoursRoute
+  AboutThePracticeIndexRoute: typeof AboutThePracticeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about-the-practice/': {
+      id: '/about-the-practice/'
+      path: '/about-the-practice'
+      fullPath: '/about-the-practice/'
+      preLoaderRoute: typeof AboutThePracticeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-the-practice/links': {
+      id: '/about-the-practice/links'
+      path: '/about-the-practice/links'
+      fullPath: '/about-the-practice/links'
+      preLoaderRoute: typeof AboutThePracticeLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-the-practice/location': {
+      id: '/about-the-practice/location'
+      path: '/about-the-practice/location'
+      fullPath: '/about-the-practice/location'
+      preLoaderRoute: typeof AboutThePracticeLocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-the-practice/surgery-hours': {
+      id: '/about-the-practice/surgery-hours'
+      path: '/about-the-practice/surgery-hours'
+      fullPath: '/about-the-practice/surgery-hours'
+      preLoaderRoute: typeof AboutThePracticeSurgeryHoursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutThePracticeLinksRoute: AboutThePracticeLinksRoute,
+  AboutThePracticeLocationRoute: AboutThePracticeLocationRoute,
+  AboutThePracticeSurgeryHoursRoute: AboutThePracticeSurgeryHoursRoute,
+  AboutThePracticeIndexRoute: AboutThePracticeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
