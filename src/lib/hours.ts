@@ -6,13 +6,13 @@ export type OpenStatus =
   | { state: "closed"; label: string; opensDay: string; opensAt: string };
 
 const toMinutes = (t: string) => {
-  const [h, m] = t.split(":").map(Number);
+  const [h = 0, m = 0] = t.split(":").map(Number);
   return h * 60 + m;
 };
 
 /** "18:30" -> "6.30pm", "13:00" -> "1pm", "09:00" -> "9am" (matches site style) */
 export function formatTime(t: string): string {
-  const [h, m] = t.split(":").map(Number);
+  const [h = 0, m = 0] = t.split(":").map(Number);
   const suffix = h >= 12 ? "pm" : "am";
   const h12 = h % 12 === 0 ? 12 : h % 12;
   return m === 0 ? `${h12}${suffix}` : `${h12}.${String(m).padStart(2, "0")}${suffix}`;
@@ -42,7 +42,7 @@ export function getOpenStatus(date: Date = new Date()): OpenStatus {
   const today = dayByIndex(dayIndex);
 
   for (let i = 0; i < today.sessions.length; i++) {
-    const s = today.sessions[i];
+    const s = today.sessions[i]!;
     const open = toMinutes(s.open);
     const close = toMinutes(s.close);
     if (minutes >= open && minutes < close) {
@@ -55,8 +55,8 @@ export function getOpenStatus(date: Date = new Date()): OpenStatus {
   }
 
   // Before first session today
-  if (today.sessions.length && minutes < toMinutes(today.sessions[0].open)) {
-    const at = formatTime(today.sessions[0].open);
+  if (today.sessions.length && minutes < toMinutes(today.sessions[0]!.open)) {
+    const at = formatTime(today.sessions[0]!.open);
     return { state: "closed", opensDay: "today", opensAt: at, label: `Closed · opens today ${at}` };
   }
 
@@ -64,7 +64,7 @@ export function getOpenStatus(date: Date = new Date()): OpenStatus {
   for (let offset = 1; offset <= 7; offset++) {
     const d = dayByIndex((dayIndex + offset) % 7);
     if (d.sessions.length) {
-      const at = formatTime(d.sessions[0].open);
+      const at = formatTime(d.sessions[0]!.open);
       const dayName = offset === 1 ? "tomorrow" : d.day;
       return { state: "closed", opensDay: dayName, opensAt: at, label: `Closed · opens ${dayName} ${at}` };
     }

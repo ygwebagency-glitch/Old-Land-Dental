@@ -36,8 +36,8 @@ function TreatmentPage() {
   const { slug } = Route.useLoaderData();
   const t = getTreatment(slug)!;
   const i = treatments.findIndex((x) => x.slug === slug);
-  const prev = treatments[(i - 1 + treatments.length) % treatments.length];
-  const next = treatments[(i + 1) % treatments.length];
+  const prev = treatments[(i - 1 + treatments.length) % treatments.length]!;
+  const next = treatments[(i + 1) % treatments.length]!;
   const related = treatments.filter((x) => x.slug !== slug);
   const whiteningPdfs = patientInfoPdfs.filter((p) => p.label === "Tooth Bleaching" || p.label === "Usage Instructions for Tooth Whitening Gel");
 

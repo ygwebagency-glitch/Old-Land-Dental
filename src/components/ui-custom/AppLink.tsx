@@ -32,7 +32,7 @@ export const AppLink = forwardRef<HTMLAnchorElement, Props>(function AppLink(
       ref={ref}
       // Data-driven internal paths; every target has a route file.
       to={path as "/"}
-      hash={hash}
+      {...(hash ? { hash } : {})}
       activeOptions={{ exact: activeExact, includeHash: false }}
       {...rest}
     >

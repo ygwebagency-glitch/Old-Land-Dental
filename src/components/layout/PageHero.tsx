@@ -14,7 +14,7 @@ export function PageHero({
   eyebrow,
   children,
 }: {
-  image?: ImageKey;
+  image?: ImageKey | undefined;
   title: string;
   crumbs: Crumb[];
   eyebrow?: string;
@@ -33,12 +33,12 @@ export function PageHero({
       ref={ref}
       className="relative isolate flex aspect-[4/3] max-h-[560px] min-h-[380px] w-full items-end overflow-hidden bg-charcoal-deep md:aspect-[21/9] md:min-h-[440px]"
     >
-      <motion.div className="absolute inset-0 -z-10" style={reduced ? undefined : { y, scale }}>
+      <motion.div className="absolute inset-0 -z-10" style={reduced ? {} : { y, scale }}>
         {image ? <SmartImage imageKey={image} fill priority sizes="100vw" /> : <div className="absolute inset-0 bg-brand-gradient" />}
       </motion.div>
       <div aria-hidden className="absolute inset-0 -z-10 bg-banner-gradient" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-hero-gradient opacity-70" />
-      <motion.div className="container-site w-full pt-32 pb-10 md:pb-14" style={reduced ? undefined : { y: contentY, opacity: contentO }}>
+      <motion.div className="container-site w-full pt-32 pb-10 md:pb-14" style={reduced ? {} : { y: contentY, opacity: contentO }}>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
           <Breadcrumbs crumbs={crumbs} light />
         </motion.div>

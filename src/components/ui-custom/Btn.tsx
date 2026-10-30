@@ -98,7 +98,7 @@ export const Btn = forwardRef<HTMLElement, BtnProps>(function Btn(props, _ref) {
     <motion.span
       ref={wrap}
       className="inline-flex"
-      style={enableMagnet ? { x, y } : undefined}
+      style={enableMagnet ? { x, y } : {}}
       onPointerMove={onMove}
       onPointerLeave={reset}
     >

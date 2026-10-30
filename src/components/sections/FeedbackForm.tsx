@@ -47,8 +47,8 @@ function Field({
   id: string;
   label: string;
   required?: boolean;
-  error?: string;
-  helper?: string;
+  error?: string | undefined;
+  helper?: string | undefined;
   children: ReactNode;
   filled: boolean;
 }) {
@@ -122,7 +122,7 @@ export function FeedbackForm() {
     setErrors(errs);
     if (Object.keys(errs).length) {
       const first = Object.keys(errs)[0];
-      document.getElementById(id(first))?.focus();
+      document.getElementById(id(first ?? "firstName"))?.focus();
       return;
     }
     if (honey) return; // bot

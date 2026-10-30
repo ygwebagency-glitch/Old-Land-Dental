@@ -92,7 +92,7 @@ function InvisalignPage() {
             <p className="mt-2 font-display text-3xl text-on-dark">Invisalign Go</p>
             <p className="mt-2 text-sm text-on-dark-muted italic">{invisalignGo.note}</p>
             <ul className="mt-6 divide-y divide-on-dark/10">
-              {invisalignGo.groups[0].rows.map((r) => (
+              {invisalignGo.groups[0]!.rows.map((r) => (
                 <li key={r.name} className="py-4">
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="text-[0.95rem] font-semibold">{r.name}</span>

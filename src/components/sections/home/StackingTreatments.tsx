@@ -29,7 +29,7 @@ function StackCard({ card, i, n, progress, reduced }: { card: Card; i: number; n
       style={{ ["--i" as string]: i }}
     >
       <motion.article
-        style={reduced ? undefined : { scale, transformOrigin: "50% 0%" }}
+        style={reduced ? {} : { scale, transformOrigin: "50% 0%" }}
         className={cn(
           "relative grid overflow-hidden rounded-[28px] border border-line shadow-lift will-change-transform md:h-[min(600px,calc(100svh-var(--header-h)-120px))] md:grid-cols-[1.1fr_1fr]",
           tones[i % tones.length],

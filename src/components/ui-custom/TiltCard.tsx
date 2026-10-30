@@ -28,7 +28,7 @@ export function TiltCard({ children, className, max = 6 }: { children: ReactNode
         ref={ref}
         onPointerMove={onMove}
         onPointerLeave={reset}
-        style={reduced ? undefined : { rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
+        style={reduced ? {} : { rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
         className={cn(
           "group/tilt h-full transition-shadow duration-500 ease-[var(--ease-premium)] hover:shadow-lift",
           className,

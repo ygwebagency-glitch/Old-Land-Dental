@@ -29,13 +29,13 @@ export function HomeHero() {
       aria-label="Welcome"
       className="relative isolate flex min-h-[640px] w-full items-end overflow-hidden bg-charcoal-deep sm:aspect-[3/4] md:aspect-auto md:h-[100svh] md:max-h-[880px] md:min-h-[680px] md:items-center"
     >
-      <motion.div className="absolute inset-0 -z-10" style={reduced ? undefined : { y, scale }}>
+      <motion.div className="absolute inset-0 -z-10" style={reduced ? {} : { y, scale }}>
         <SmartImage imageKey="heroHome" fill priority sizes="100vw" />
       </motion.div>
       <div aria-hidden className="absolute inset-0 -z-10 bg-hero-gradient max-md:hidden" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-hero-mobile md:hidden" />
 
-      <motion.div className="container-site w-full pt-36 pb-14 md:pt-28 md:pb-0" style={reduced ? undefined : { y: contentY, opacity: contentO }}>
+      <motion.div className="container-site w-full pt-36 pb-14 md:pt-28 md:pb-0" style={reduced ? {} : { y: contentY, opacity: contentO }}>
         <div className="max-w-[40rem]">
           <motion.p {...fade(0)} className="eyebrow text-on-dark-muted">
             Dentist in Oldland Common, Bristol

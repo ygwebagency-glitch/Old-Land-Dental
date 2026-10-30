@@ -40,7 +40,7 @@ export function SearchOverlay() {
   const go = (url: string) => {
     setSearchOpen(false);
     const [path, hash] = url.split("#");
-    navigate({ to: path as "/", hash });
+    navigate({ to: path as "/", ...(hash ? { hash } : {}) });
   };
   const seeAll = () => {
     setSearchOpen(false);

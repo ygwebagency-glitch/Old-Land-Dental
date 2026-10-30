@@ -131,7 +131,7 @@ function EmergenciesPage() {
             <p className="mb-3 px-3 font-display text-2xl text-charcoal">Surgery hours</p>
             <HoursTable compact />
           </Reveal>
-          {emergencyPrices.groups[0].rows.map((r) => (
+          {emergencyPrices.groups[0]!.rows.map((r) => (
             <Reveal key={r.name} className="rounded-[22px] bg-sand p-5">
               <p className="text-sm text-ink-muted">{r.name}</p>
               <p className="mt-1 font-display text-2xl text-charcoal">{r.price}</p>

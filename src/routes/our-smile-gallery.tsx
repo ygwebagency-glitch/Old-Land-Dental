@@ -34,7 +34,7 @@ function Lightbox({ index, setIndex }: { index: number | null; setIndex: (i: num
   const touchX = useRef<number | null>(null);
   const n = gallery.length;
   const go = (d: number) => index !== null && setIndex((index + d + n) % n);
-  const img = index !== null ? getImage(gallery[index].key) : null;
+  const img = index !== null ? getImage(gallery[index]!.key) : null;
   return (
     <DialogPrimitive.Root open={index !== null} onOpenChange={(o) => !o && setIndex(null)}>
       <DialogPrimitive.Portal>
