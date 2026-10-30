@@ -45,10 +45,10 @@ function Lightbox({ index, setIndex }: { index: number | null; setIndex: (i: num
             if (e.key === "ArrowRight") go(1);
             if (e.key === "ArrowLeft") go(-1);
           }}
-          onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+          onTouchStart={(e) => (touchX.current = e.touches[0]?.clientX ?? null)}
           onTouchEnd={(e) => {
             if (touchX.current === null) return;
-            const dx = e.changedTouches[0].clientX - touchX.current;
+            const dx = (e.changedTouches[0]?.clientX ?? touchX.current) - touchX.current;
             if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
             touchX.current = null;
           }}
