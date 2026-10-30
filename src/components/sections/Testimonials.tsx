@@ -76,7 +76,7 @@ export function Testimonials() {
     return () => cancelAnimationFrame(raf);
   }, [paused, reduced, n, progress]);
 
-  const t = testimonials[index];
+  const t = testimonials[index]!;
 
   return (
     <ToneSection tone="sand" grain className="section-pad overflow-hidden" ariaLabel="Patient testimonials">

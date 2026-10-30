@@ -251,7 +251,7 @@ function Dropdown({
 
 function MegaPanel({ pathname }: { pathname: string }) {
   const [hover, setHover] = useState(0);
-  const t = treatments[hover];
+  const t = treatments[hover]!;
   return (
     <div className="grid w-[44rem] grid-cols-[1fr_1.05fr] gap-3 rounded-[26px] border border-line bg-popover p-3 shadow-lift">
       <ul className="py-1">

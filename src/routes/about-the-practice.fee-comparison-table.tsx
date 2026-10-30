@@ -120,7 +120,7 @@ function FeesPage() {
                 <div key={k} className="flex items-center justify-between gap-4 border-t border-line pt-2">
                   <dt className="text-ink-muted">{k}</dt>
                   <dd>
-                    <Cell v={v} kind={kind as "saving" | "plain"} />
+                    <Cell v={v ?? ""} kind={kind as "saving" | "plain"} />
                   </dd>
                 </div>
               ))}

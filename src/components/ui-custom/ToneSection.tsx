@@ -35,7 +35,7 @@ export function ToneSection({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && setOn(true), { rootMargin: "0px 0px -35% 0px" });
+    const io = new IntersectionObserver(([e]) => e?.isIntersecting && setOn(true), { rootMargin: "0px 0px -35% 0px" });
     io.observe(el);
     return () => io.disconnect();
   }, []);
