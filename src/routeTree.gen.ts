@@ -10,6 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EmergenciesRouteImport } from './routes/emergencies'
+import { Route as FacialAestheticsRouteImport } from './routes/facial-aesthetics'
+import { Route as InvisalignRouteImport } from './routes/invisalign'
+import { Route as OurSmileGalleryRouteImport } from './routes/our-smile-gallery'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as AboutThePracticeIndexRouteImport } from './routes/about-the-practice.index'
 import { Route as AboutThePracticeFeeComparisonTableRouteImport } from './routes/about-the-practice.fee-comparison-table'
 import { Route as AboutThePracticeLinksRouteImport } from './routes/about-the-practice.links'
@@ -27,6 +33,36 @@ import { Route as DentalTreatmentsSlugRouteImport } from './routes/dental-treatm
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergenciesRoute = EmergenciesRouteImport.update({
+  id: '/emergencies',
+  path: '/emergencies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacialAestheticsRoute = FacialAestheticsRouteImport.update({
+  id: '/facial-aesthetics',
+  path: '/facial-aesthetics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvisalignRoute = InvisalignRouteImport.update({
+  id: '/invisalign',
+  path: '/invisalign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurSmileGalleryRoute = OurSmileGalleryRouteImport.update({
+  id: '/our-smile-gallery',
+  path: '/our-smile-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutThePracticeIndexRoute = AboutThePracticeIndexRouteImport.update({
@@ -100,6 +136,12 @@ const DentalTreatmentsSlugRoute = DentalTreatmentsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/emergencies': typeof EmergenciesRoute
+  '/facial-aesthetics': typeof FacialAestheticsRoute
+  '/invisalign': typeof InvisalignRoute
+  '/our-smile-gallery': typeof OurSmileGalleryRoute
+  '/search': typeof SearchRoute
+  '/sitemap': typeof SitemapRoute
   '/about-the-practice/fee-comparison-table': typeof AboutThePracticeFeeComparisonTableRoute
   '/about-the-practice/links': typeof AboutThePracticeLinksRoute
   '/about-the-practice/location': typeof AboutThePracticeLocationRoute
@@ -116,6 +158,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/emergencies': typeof EmergenciesRoute
+  '/facial-aesthetics': typeof FacialAestheticsRoute
+  '/invisalign': typeof InvisalignRoute
+  '/our-smile-gallery': typeof OurSmileGalleryRoute
+  '/search': typeof SearchRoute
+  '/sitemap': typeof SitemapRoute
   '/about-the-practice/fee-comparison-table': typeof AboutThePracticeFeeComparisonTableRoute
   '/about-the-practice/links': typeof AboutThePracticeLinksRoute
   '/about-the-practice/location': typeof AboutThePracticeLocationRoute
@@ -133,6 +181,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/emergencies': typeof EmergenciesRoute
+  '/facial-aesthetics': typeof FacialAestheticsRoute
+  '/invisalign': typeof InvisalignRoute
+  '/our-smile-gallery': typeof OurSmileGalleryRoute
+  '/search': typeof SearchRoute
+  '/sitemap': typeof SitemapRoute
   '/about-the-practice/fee-comparison-table': typeof AboutThePracticeFeeComparisonTableRoute
   '/about-the-practice/links': typeof AboutThePracticeLinksRoute
   '/about-the-practice/location': typeof AboutThePracticeLocationRoute
@@ -151,6 +205,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/emergencies'
+    | '/facial-aesthetics'
+    | '/invisalign'
+    | '/our-smile-gallery'
+    | '/search'
+    | '/sitemap'
     | '/about-the-practice/fee-comparison-table'
     | '/about-the-practice/links'
     | '/about-the-practice/location'
@@ -167,6 +227,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/emergencies'
+    | '/facial-aesthetics'
+    | '/invisalign'
+    | '/our-smile-gallery'
+    | '/search'
+    | '/sitemap'
     | '/about-the-practice/fee-comparison-table'
     | '/about-the-practice/links'
     | '/about-the-practice/location'
@@ -183,6 +249,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/emergencies'
+    | '/facial-aesthetics'
+    | '/invisalign'
+    | '/our-smile-gallery'
+    | '/search'
+    | '/sitemap'
     | '/about-the-practice/fee-comparison-table'
     | '/about-the-practice/links'
     | '/about-the-practice/location'
@@ -200,6 +272,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmergenciesRoute: typeof EmergenciesRoute
+  FacialAestheticsRoute: typeof FacialAestheticsRoute
+  InvisalignRoute: typeof InvisalignRoute
+  OurSmileGalleryRoute: typeof OurSmileGalleryRoute
+  SearchRoute: typeof SearchRoute
+  SitemapRoute: typeof SitemapRoute
   AboutThePracticeFeeComparisonTableRoute: typeof AboutThePracticeFeeComparisonTableRoute
   AboutThePracticeLinksRoute: typeof AboutThePracticeLinksRoute
   AboutThePracticeLocationRoute: typeof AboutThePracticeLocationRoute
@@ -222,6 +300,48 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergencies': {
+      id: '/emergencies'
+      path: '/emergencies'
+      fullPath: '/emergencies'
+      preLoaderRoute: typeof EmergenciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facial-aesthetics': {
+      id: '/facial-aesthetics'
+      path: '/facial-aesthetics'
+      fullPath: '/facial-aesthetics'
+      preLoaderRoute: typeof FacialAestheticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invisalign': {
+      id: '/invisalign'
+      path: '/invisalign'
+      fullPath: '/invisalign'
+      preLoaderRoute: typeof InvisalignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-smile-gallery': {
+      id: '/our-smile-gallery'
+      path: '/our-smile-gallery'
+      fullPath: '/our-smile-gallery'
+      preLoaderRoute: typeof OurSmileGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about-the-practice/': {
@@ -320,6 +440,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmergenciesRoute: EmergenciesRoute,
+  FacialAestheticsRoute: FacialAestheticsRoute,
+  InvisalignRoute: InvisalignRoute,
+  OurSmileGalleryRoute: OurSmileGalleryRoute,
+  SearchRoute: SearchRoute,
+  SitemapRoute: SitemapRoute,
   AboutThePracticeFeeComparisonTableRoute:
     AboutThePracticeFeeComparisonTableRoute,
   AboutThePracticeLinksRoute: AboutThePracticeLinksRoute,
