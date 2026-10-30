@@ -17,6 +17,10 @@ import { Route as AboutThePracticeLocationRouteImport } from './routes/about-the
 import { Route as AboutThePracticeOurTeamRouteImport } from './routes/about-the-practice.our-team'
 import { Route as AboutThePracticePricesRouteImport } from './routes/about-the-practice.prices'
 import { Route as AboutThePracticeSurgeryHoursRouteImport } from './routes/about-the-practice.surgery-hours'
+import { Route as ContactUsIndexRouteImport } from './routes/contact-us.index'
+import { Route as ContactUsAppointmentsRouteImport } from './routes/contact-us.appointments'
+import { Route as ContactUsComplaintsRouteImport } from './routes/contact-us.complaints'
+import { Route as ContactUsRegistrationRouteImport } from './routes/contact-us.registration'
 import { Route as DentalTreatmentsIndexRouteImport } from './routes/dental-treatments.index'
 import { Route as DentalTreatmentsSlugRouteImport } from './routes/dental-treatments.$slug'
 
@@ -63,6 +67,26 @@ const AboutThePracticeSurgeryHoursRoute =
     path: '/about-the-practice/surgery-hours',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ContactUsIndexRoute = ContactUsIndexRouteImport.update({
+  id: '/contact-us/',
+  path: '/contact-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsAppointmentsRoute = ContactUsAppointmentsRouteImport.update({
+  id: '/contact-us/appointments',
+  path: '/contact-us/appointments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsComplaintsRoute = ContactUsComplaintsRouteImport.update({
+  id: '/contact-us/complaints',
+  path: '/contact-us/complaints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsRegistrationRoute = ContactUsRegistrationRouteImport.update({
+  id: '/contact-us/registration',
+  path: '/contact-us/registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DentalTreatmentsIndexRoute = DentalTreatmentsIndexRouteImport.update({
   id: '/dental-treatments/',
   path: '/dental-treatments/',
@@ -82,8 +106,12 @@ export interface FileRoutesByFullPath {
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/contact-us/appointments': typeof ContactUsAppointmentsRoute
+  '/contact-us/complaints': typeof ContactUsComplaintsRoute
+  '/contact-us/registration': typeof ContactUsRegistrationRoute
   '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice/': typeof AboutThePracticeIndexRoute
+  '/contact-us/': typeof ContactUsIndexRoute
   '/dental-treatments/': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -94,8 +122,12 @@ export interface FileRoutesByTo {
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/contact-us/appointments': typeof ContactUsAppointmentsRoute
+  '/contact-us/complaints': typeof ContactUsComplaintsRoute
+  '/contact-us/registration': typeof ContactUsRegistrationRoute
   '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice': typeof AboutThePracticeIndexRoute
+  '/contact-us': typeof ContactUsIndexRoute
   '/dental-treatments': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRoutesById {
@@ -107,8 +139,12 @@ export interface FileRoutesById {
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/contact-us/appointments': typeof ContactUsAppointmentsRoute
+  '/contact-us/complaints': typeof ContactUsComplaintsRoute
+  '/contact-us/registration': typeof ContactUsRegistrationRoute
   '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice/': typeof AboutThePracticeIndexRoute
+  '/contact-us/': typeof ContactUsIndexRoute
   '/dental-treatments/': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRouteTypes {
@@ -121,8 +157,12 @@ export interface FileRouteTypes {
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/contact-us/appointments'
+    | '/contact-us/complaints'
+    | '/contact-us/registration'
     | '/dental-treatments/$slug'
     | '/about-the-practice/'
+    | '/contact-us/'
     | '/dental-treatments/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -133,8 +173,12 @@ export interface FileRouteTypes {
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/contact-us/appointments'
+    | '/contact-us/complaints'
+    | '/contact-us/registration'
     | '/dental-treatments/$slug'
     | '/about-the-practice'
+    | '/contact-us'
     | '/dental-treatments'
   id:
     | '__root__'
@@ -145,8 +189,12 @@ export interface FileRouteTypes {
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/contact-us/appointments'
+    | '/contact-us/complaints'
+    | '/contact-us/registration'
     | '/dental-treatments/$slug'
     | '/about-the-practice/'
+    | '/contact-us/'
     | '/dental-treatments/'
   fileRoutesById: FileRoutesById
 }
@@ -158,8 +206,12 @@ export interface RootRouteChildren {
   AboutThePracticeOurTeamRoute: typeof AboutThePracticeOurTeamRoute
   AboutThePracticePricesRoute: typeof AboutThePracticePricesRoute
   AboutThePracticeSurgeryHoursRoute: typeof AboutThePracticeSurgeryHoursRoute
+  ContactUsAppointmentsRoute: typeof ContactUsAppointmentsRoute
+  ContactUsComplaintsRoute: typeof ContactUsComplaintsRoute
+  ContactUsRegistrationRoute: typeof ContactUsRegistrationRoute
   DentalTreatmentsSlugRoute: typeof DentalTreatmentsSlugRoute
   AboutThePracticeIndexRoute: typeof AboutThePracticeIndexRoute
+  ContactUsIndexRoute: typeof ContactUsIndexRoute
   DentalTreatmentsIndexRoute: typeof DentalTreatmentsIndexRoute
 }
 
@@ -221,6 +273,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutThePracticeSurgeryHoursRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us/': {
+      id: '/contact-us/'
+      path: '/contact-us'
+      fullPath: '/contact-us/'
+      preLoaderRoute: typeof ContactUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us/appointments': {
+      id: '/contact-us/appointments'
+      path: '/contact-us/appointments'
+      fullPath: '/contact-us/appointments'
+      preLoaderRoute: typeof ContactUsAppointmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us/complaints': {
+      id: '/contact-us/complaints'
+      path: '/contact-us/complaints'
+      fullPath: '/contact-us/complaints'
+      preLoaderRoute: typeof ContactUsComplaintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us/registration': {
+      id: '/contact-us/registration'
+      path: '/contact-us/registration'
+      fullPath: '/contact-us/registration'
+      preLoaderRoute: typeof ContactUsRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dental-treatments/': {
       id: '/dental-treatments/'
       path: '/dental-treatments'
@@ -247,8 +327,12 @@ const rootRouteChildren: RootRouteChildren = {
   AboutThePracticeOurTeamRoute: AboutThePracticeOurTeamRoute,
   AboutThePracticePricesRoute: AboutThePracticePricesRoute,
   AboutThePracticeSurgeryHoursRoute: AboutThePracticeSurgeryHoursRoute,
+  ContactUsAppointmentsRoute: ContactUsAppointmentsRoute,
+  ContactUsComplaintsRoute: ContactUsComplaintsRoute,
+  ContactUsRegistrationRoute: ContactUsRegistrationRoute,
   DentalTreatmentsSlugRoute: DentalTreatmentsSlugRoute,
   AboutThePracticeIndexRoute: AboutThePracticeIndexRoute,
+  ContactUsIndexRoute: ContactUsIndexRoute,
   DentalTreatmentsIndexRoute: DentalTreatmentsIndexRoute,
 }
 export const routeTree = rootRouteImport
