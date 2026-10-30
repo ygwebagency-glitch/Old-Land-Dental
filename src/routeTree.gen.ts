@@ -10,6 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EmergenciesRouteImport } from './routes/emergencies'
+import { Route as FacialAestheticsRouteImport } from './routes/facial-aesthetics'
+import { Route as InvisalignRouteImport } from './routes/invisalign'
+import { Route as OurSmileGalleryRouteImport } from './routes/our-smile-gallery'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as AboutThePracticeIndexRouteImport } from './routes/about-the-practice.index'
 import { Route as AboutThePracticeFeeComparisonTableRouteImport } from './routes/about-the-practice.fee-comparison-table'
 import { Route as AboutThePracticeLinksRouteImport } from './routes/about-the-practice.links'
@@ -17,10 +23,46 @@ import { Route as AboutThePracticeLocationRouteImport } from './routes/about-the
 import { Route as AboutThePracticeOurTeamRouteImport } from './routes/about-the-practice.our-team'
 import { Route as AboutThePracticePricesRouteImport } from './routes/about-the-practice.prices'
 import { Route as AboutThePracticeSurgeryHoursRouteImport } from './routes/about-the-practice.surgery-hours'
+import { Route as ContactUsIndexRouteImport } from './routes/contact-us.index'
+import { Route as ContactUsAppointmentsRouteImport } from './routes/contact-us.appointments'
+import { Route as ContactUsComplaintsRouteImport } from './routes/contact-us.complaints'
+import { Route as ContactUsRegistrationRouteImport } from './routes/contact-us.registration'
+import { Route as DentalTreatmentsIndexRouteImport } from './routes/dental-treatments.index'
+import { Route as DentalTreatmentsSlugRouteImport } from './routes/dental-treatments.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergenciesRoute = EmergenciesRouteImport.update({
+  id: '/emergencies',
+  path: '/emergencies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacialAestheticsRoute = FacialAestheticsRouteImport.update({
+  id: '/facial-aesthetics',
+  path: '/facial-aesthetics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvisalignRoute = InvisalignRouteImport.update({
+  id: '/invisalign',
+  path: '/invisalign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurSmileGalleryRoute = OurSmileGalleryRouteImport.update({
+  id: '/our-smile-gallery',
+  path: '/our-smile-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutThePracticeIndexRoute = AboutThePracticeIndexRouteImport.update({
@@ -61,80 +103,194 @@ const AboutThePracticeSurgeryHoursRoute =
     path: '/about-the-practice/surgery-hours',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ContactUsIndexRoute = ContactUsIndexRouteImport.update({
+  id: '/contact-us/',
+  path: '/contact-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsAppointmentsRoute = ContactUsAppointmentsRouteImport.update({
+  id: '/contact-us/appointments',
+  path: '/contact-us/appointments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsComplaintsRoute = ContactUsComplaintsRouteImport.update({
+  id: '/contact-us/complaints',
+  path: '/contact-us/complaints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsRegistrationRoute = ContactUsRegistrationRouteImport.update({
+  id: '/contact-us/registration',
+  path: '/contact-us/registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalTreatmentsIndexRoute = DentalTreatmentsIndexRouteImport.update({
+  id: '/dental-treatments/',
+  path: '/dental-treatments/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalTreatmentsSlugRoute = DentalTreatmentsSlugRouteImport.update({
+  id: '/dental-treatments/$slug',
+  path: '/dental-treatments/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/emergencies': typeof EmergenciesRoute
+  '/facial-aesthetics': typeof FacialAestheticsRoute
+  '/invisalign': typeof InvisalignRoute
+  '/our-smile-gallery': typeof OurSmileGalleryRoute
+  '/search': typeof SearchRoute
+  '/sitemap': typeof SitemapRoute
   '/about-the-practice/fee-comparison-table': typeof AboutThePracticeFeeComparisonTableRoute
   '/about-the-practice/links': typeof AboutThePracticeLinksRoute
   '/about-the-practice/location': typeof AboutThePracticeLocationRoute
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/contact-us/appointments': typeof ContactUsAppointmentsRoute
+  '/contact-us/complaints': typeof ContactUsComplaintsRoute
+  '/contact-us/registration': typeof ContactUsRegistrationRoute
+  '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice/': typeof AboutThePracticeIndexRoute
+  '/contact-us/': typeof ContactUsIndexRoute
+  '/dental-treatments/': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/emergencies': typeof EmergenciesRoute
+  '/facial-aesthetics': typeof FacialAestheticsRoute
+  '/invisalign': typeof InvisalignRoute
+  '/our-smile-gallery': typeof OurSmileGalleryRoute
+  '/search': typeof SearchRoute
+  '/sitemap': typeof SitemapRoute
   '/about-the-practice/fee-comparison-table': typeof AboutThePracticeFeeComparisonTableRoute
   '/about-the-practice/links': typeof AboutThePracticeLinksRoute
   '/about-the-practice/location': typeof AboutThePracticeLocationRoute
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/contact-us/appointments': typeof ContactUsAppointmentsRoute
+  '/contact-us/complaints': typeof ContactUsComplaintsRoute
+  '/contact-us/registration': typeof ContactUsRegistrationRoute
+  '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice': typeof AboutThePracticeIndexRoute
+  '/contact-us': typeof ContactUsIndexRoute
+  '/dental-treatments': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/emergencies': typeof EmergenciesRoute
+  '/facial-aesthetics': typeof FacialAestheticsRoute
+  '/invisalign': typeof InvisalignRoute
+  '/our-smile-gallery': typeof OurSmileGalleryRoute
+  '/search': typeof SearchRoute
+  '/sitemap': typeof SitemapRoute
   '/about-the-practice/fee-comparison-table': typeof AboutThePracticeFeeComparisonTableRoute
   '/about-the-practice/links': typeof AboutThePracticeLinksRoute
   '/about-the-practice/location': typeof AboutThePracticeLocationRoute
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/contact-us/appointments': typeof ContactUsAppointmentsRoute
+  '/contact-us/complaints': typeof ContactUsComplaintsRoute
+  '/contact-us/registration': typeof ContactUsRegistrationRoute
+  '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice/': typeof AboutThePracticeIndexRoute
+  '/contact-us/': typeof ContactUsIndexRoute
+  '/dental-treatments/': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/emergencies'
+    | '/facial-aesthetics'
+    | '/invisalign'
+    | '/our-smile-gallery'
+    | '/search'
+    | '/sitemap'
     | '/about-the-practice/fee-comparison-table'
     | '/about-the-practice/links'
     | '/about-the-practice/location'
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/contact-us/appointments'
+    | '/contact-us/complaints'
+    | '/contact-us/registration'
+    | '/dental-treatments/$slug'
     | '/about-the-practice/'
+    | '/contact-us/'
+    | '/dental-treatments/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/emergencies'
+    | '/facial-aesthetics'
+    | '/invisalign'
+    | '/our-smile-gallery'
+    | '/search'
+    | '/sitemap'
     | '/about-the-practice/fee-comparison-table'
     | '/about-the-practice/links'
     | '/about-the-practice/location'
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/contact-us/appointments'
+    | '/contact-us/complaints'
+    | '/contact-us/registration'
+    | '/dental-treatments/$slug'
     | '/about-the-practice'
+    | '/contact-us'
+    | '/dental-treatments'
   id:
     | '__root__'
     | '/'
+    | '/emergencies'
+    | '/facial-aesthetics'
+    | '/invisalign'
+    | '/our-smile-gallery'
+    | '/search'
+    | '/sitemap'
     | '/about-the-practice/fee-comparison-table'
     | '/about-the-practice/links'
     | '/about-the-practice/location'
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/contact-us/appointments'
+    | '/contact-us/complaints'
+    | '/contact-us/registration'
+    | '/dental-treatments/$slug'
     | '/about-the-practice/'
+    | '/contact-us/'
+    | '/dental-treatments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmergenciesRoute: typeof EmergenciesRoute
+  FacialAestheticsRoute: typeof FacialAestheticsRoute
+  InvisalignRoute: typeof InvisalignRoute
+  OurSmileGalleryRoute: typeof OurSmileGalleryRoute
+  SearchRoute: typeof SearchRoute
+  SitemapRoute: typeof SitemapRoute
   AboutThePracticeFeeComparisonTableRoute: typeof AboutThePracticeFeeComparisonTableRoute
   AboutThePracticeLinksRoute: typeof AboutThePracticeLinksRoute
   AboutThePracticeLocationRoute: typeof AboutThePracticeLocationRoute
   AboutThePracticeOurTeamRoute: typeof AboutThePracticeOurTeamRoute
   AboutThePracticePricesRoute: typeof AboutThePracticePricesRoute
   AboutThePracticeSurgeryHoursRoute: typeof AboutThePracticeSurgeryHoursRoute
+  ContactUsAppointmentsRoute: typeof ContactUsAppointmentsRoute
+  ContactUsComplaintsRoute: typeof ContactUsComplaintsRoute
+  ContactUsRegistrationRoute: typeof ContactUsRegistrationRoute
+  DentalTreatmentsSlugRoute: typeof DentalTreatmentsSlugRoute
   AboutThePracticeIndexRoute: typeof AboutThePracticeIndexRoute
+  ContactUsIndexRoute: typeof ContactUsIndexRoute
+  DentalTreatmentsIndexRoute: typeof DentalTreatmentsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -144,6 +300,48 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergencies': {
+      id: '/emergencies'
+      path: '/emergencies'
+      fullPath: '/emergencies'
+      preLoaderRoute: typeof EmergenciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facial-aesthetics': {
+      id: '/facial-aesthetics'
+      path: '/facial-aesthetics'
+      fullPath: '/facial-aesthetics'
+      preLoaderRoute: typeof FacialAestheticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invisalign': {
+      id: '/invisalign'
+      path: '/invisalign'
+      fullPath: '/invisalign'
+      preLoaderRoute: typeof InvisalignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-smile-gallery': {
+      id: '/our-smile-gallery'
+      path: '/our-smile-gallery'
+      fullPath: '/our-smile-gallery'
+      preLoaderRoute: typeof OurSmileGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about-the-practice/': {
@@ -195,11 +393,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutThePracticeSurgeryHoursRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us/': {
+      id: '/contact-us/'
+      path: '/contact-us'
+      fullPath: '/contact-us/'
+      preLoaderRoute: typeof ContactUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us/appointments': {
+      id: '/contact-us/appointments'
+      path: '/contact-us/appointments'
+      fullPath: '/contact-us/appointments'
+      preLoaderRoute: typeof ContactUsAppointmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us/complaints': {
+      id: '/contact-us/complaints'
+      path: '/contact-us/complaints'
+      fullPath: '/contact-us/complaints'
+      preLoaderRoute: typeof ContactUsComplaintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us/registration': {
+      id: '/contact-us/registration'
+      path: '/contact-us/registration'
+      fullPath: '/contact-us/registration'
+      preLoaderRoute: typeof ContactUsRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-treatments/': {
+      id: '/dental-treatments/'
+      path: '/dental-treatments'
+      fullPath: '/dental-treatments/'
+      preLoaderRoute: typeof DentalTreatmentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-treatments/$slug': {
+      id: '/dental-treatments/$slug'
+      path: '/dental-treatments/$slug'
+      fullPath: '/dental-treatments/$slug'
+      preLoaderRoute: typeof DentalTreatmentsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmergenciesRoute: EmergenciesRoute,
+  FacialAestheticsRoute: FacialAestheticsRoute,
+  InvisalignRoute: InvisalignRoute,
+  OurSmileGalleryRoute: OurSmileGalleryRoute,
+  SearchRoute: SearchRoute,
+  SitemapRoute: SitemapRoute,
   AboutThePracticeFeeComparisonTableRoute:
     AboutThePracticeFeeComparisonTableRoute,
   AboutThePracticeLinksRoute: AboutThePracticeLinksRoute,
@@ -207,7 +453,13 @@ const rootRouteChildren: RootRouteChildren = {
   AboutThePracticeOurTeamRoute: AboutThePracticeOurTeamRoute,
   AboutThePracticePricesRoute: AboutThePracticePricesRoute,
   AboutThePracticeSurgeryHoursRoute: AboutThePracticeSurgeryHoursRoute,
+  ContactUsAppointmentsRoute: ContactUsAppointmentsRoute,
+  ContactUsComplaintsRoute: ContactUsComplaintsRoute,
+  ContactUsRegistrationRoute: ContactUsRegistrationRoute,
+  DentalTreatmentsSlugRoute: DentalTreatmentsSlugRoute,
   AboutThePracticeIndexRoute: AboutThePracticeIndexRoute,
+  ContactUsIndexRoute: ContactUsIndexRoute,
+  DentalTreatmentsIndexRoute: DentalTreatmentsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
