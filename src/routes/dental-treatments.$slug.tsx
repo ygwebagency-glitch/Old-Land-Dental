@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Check, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import { InnerPage, crumbsFor } from "@/components/layout/InnerPage";
 import { CtaBand, Prose } from "@/components/sections/CtaBand";
 import { AppLink } from "@/components/ui-custom/AppLink";
@@ -145,9 +145,6 @@ function TreatmentPage() {
           <ArrowRight className="size-5 text-teal-dark transition-transform group-hover:translate-x-1" />
         </AppLink>
       </nav>
-      <span className="sr-only">
-        <Check />
-      </span>
     </InnerPage>
   );
 }

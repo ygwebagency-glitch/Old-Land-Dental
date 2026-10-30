@@ -17,6 +17,8 @@ import { Route as AboutThePracticeLocationRouteImport } from './routes/about-the
 import { Route as AboutThePracticeOurTeamRouteImport } from './routes/about-the-practice.our-team'
 import { Route as AboutThePracticePricesRouteImport } from './routes/about-the-practice.prices'
 import { Route as AboutThePracticeSurgeryHoursRouteImport } from './routes/about-the-practice.surgery-hours'
+import { Route as DentalTreatmentsIndexRouteImport } from './routes/dental-treatments.index'
+import { Route as DentalTreatmentsSlugRouteImport } from './routes/dental-treatments.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -61,6 +63,16 @@ const AboutThePracticeSurgeryHoursRoute =
     path: '/about-the-practice/surgery-hours',
     getParentRoute: () => rootRouteImport,
   } as any)
+const DentalTreatmentsIndexRoute = DentalTreatmentsIndexRouteImport.update({
+  id: '/dental-treatments/',
+  path: '/dental-treatments/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalTreatmentsSlugRoute = DentalTreatmentsSlugRouteImport.update({
+  id: '/dental-treatments/$slug',
+  path: '/dental-treatments/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -70,7 +82,9 @@ export interface FileRoutesByFullPath {
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice/': typeof AboutThePracticeIndexRoute
+  '/dental-treatments/': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -80,7 +94,9 @@ export interface FileRoutesByTo {
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice': typeof AboutThePracticeIndexRoute
+  '/dental-treatments': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -91,7 +107,9 @@ export interface FileRoutesById {
   '/about-the-practice/our-team': typeof AboutThePracticeOurTeamRoute
   '/about-the-practice/prices': typeof AboutThePracticePricesRoute
   '/about-the-practice/surgery-hours': typeof AboutThePracticeSurgeryHoursRoute
+  '/dental-treatments/$slug': typeof DentalTreatmentsSlugRoute
   '/about-the-practice/': typeof AboutThePracticeIndexRoute
+  '/dental-treatments/': typeof DentalTreatmentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -103,7 +121,9 @@ export interface FileRouteTypes {
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/dental-treatments/$slug'
     | '/about-the-practice/'
+    | '/dental-treatments/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -113,7 +133,9 @@ export interface FileRouteTypes {
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/dental-treatments/$slug'
     | '/about-the-practice'
+    | '/dental-treatments'
   id:
     | '__root__'
     | '/'
@@ -123,7 +145,9 @@ export interface FileRouteTypes {
     | '/about-the-practice/our-team'
     | '/about-the-practice/prices'
     | '/about-the-practice/surgery-hours'
+    | '/dental-treatments/$slug'
     | '/about-the-practice/'
+    | '/dental-treatments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -134,7 +158,9 @@ export interface RootRouteChildren {
   AboutThePracticeOurTeamRoute: typeof AboutThePracticeOurTeamRoute
   AboutThePracticePricesRoute: typeof AboutThePracticePricesRoute
   AboutThePracticeSurgeryHoursRoute: typeof AboutThePracticeSurgeryHoursRoute
+  DentalTreatmentsSlugRoute: typeof DentalTreatmentsSlugRoute
   AboutThePracticeIndexRoute: typeof AboutThePracticeIndexRoute
+  DentalTreatmentsIndexRoute: typeof DentalTreatmentsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -195,6 +221,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutThePracticeSurgeryHoursRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dental-treatments/': {
+      id: '/dental-treatments/'
+      path: '/dental-treatments'
+      fullPath: '/dental-treatments/'
+      preLoaderRoute: typeof DentalTreatmentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-treatments/$slug': {
+      id: '/dental-treatments/$slug'
+      path: '/dental-treatments/$slug'
+      fullPath: '/dental-treatments/$slug'
+      preLoaderRoute: typeof DentalTreatmentsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -207,7 +247,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutThePracticeOurTeamRoute: AboutThePracticeOurTeamRoute,
   AboutThePracticePricesRoute: AboutThePracticePricesRoute,
   AboutThePracticeSurgeryHoursRoute: AboutThePracticeSurgeryHoursRoute,
+  DentalTreatmentsSlugRoute: DentalTreatmentsSlugRoute,
   AboutThePracticeIndexRoute: AboutThePracticeIndexRoute,
+  DentalTreatmentsIndexRoute: DentalTreatmentsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
