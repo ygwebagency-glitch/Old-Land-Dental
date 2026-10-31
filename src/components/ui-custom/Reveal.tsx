@@ -1,5 +1,5 @@
-import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, useInView, useReducedMotion, type HTMLMotionProps } from "framer-motion";
+import { useRef, type ReactNode } from "react";
 import { EASE, viewportOnce } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -72,26 +72,29 @@ export function RevealItem({
   );
 }
 
-/** Image reveal: clip-path wipe + inner scale 1.15 → 1 */
+/** Image reveal: clip-path wipe + inner scale 1.15 → 1.
+ *  The in-view check runs on an unclipped wrapper (a fully clipped element never intersects). */
 export function ImageReveal({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   const reduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.15 });
   return (
-    <motion.div
-      className={cn("overflow-hidden", className)}
-      initial={reduced ? { opacity: 0 } : { clipPath: "inset(0 0 100% 0)" }}
-      whileInView={reduced ? { opacity: 1 } : { clipPath: "inset(0 0 0% 0)" }}
-      viewport={viewportOnce}
-      transition={{ duration: 1.1, delay, ease: EASE }}
-    >
+    <div ref={ref} className={className}>
       <motion.div
-        className="h-full w-full"
-        initial={reduced ? false : { scale: 1.15 }}
-        whileInView={{ scale: 1 }}
-        viewport={viewportOnce}
-        transition={{ duration: 1.4, delay, ease: EASE }}
+        className="h-full w-full overflow-hidden rounded-[inherit]"
+        initial={reduced ? { opacity: 0 } : { clipPath: "inset(0% 0% 100% 0%)" }}
+        animate={inView ? (reduced ? { opacity: 1 } : { clipPath: "inset(0% 0% 0% 0%)" }) : undefined}
+        transition={{ duration: 1.1, delay, ease: EASE }}
       >
-        {children}
+        <motion.div
+          className="h-full w-full"
+          initial={reduced ? false : { scale: 1.15 }}
+          animate={inView ? { scale: 1 } : undefined}
+          transition={{ duration: 1.4, delay, ease: EASE }}
+        >
+          {children}
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
