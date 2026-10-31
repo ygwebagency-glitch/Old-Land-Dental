@@ -59,7 +59,7 @@ function AppointmentsPage() {
       </div>
 
       <div className="mt-14">
-        <SplitText text="How booking works" className="text-h3" />
+        <SplitText text="How booking works" className="type-h3" />
         <RevealGroup as="ol" className="mt-6 grid gap-4 md:grid-cols-3">
           {steps.map((s) => (
             <RevealItem as="li" key={s.n} className="relative rounded-[24px] bg-sand p-7">
@@ -71,7 +71,7 @@ function AppointmentsPage() {
       </div>
 
       <div className="mt-14">
-        <SplitText text="Missed Appointments" className="text-h2" />
+        <SplitText text="Missed Appointments" className="type-h2" />
         <div className="mt-6 max-w-[68ch] space-y-4 text-[1.05rem]">
           <Reveal>
             <p>

@@ -15,7 +15,7 @@ export function SeeResults() {
           <Reveal>
             <p className="eyebrow text-charcoal">Smile gallery</p>
           </Reveal>
-          <SplitText id="results-heading" text="See Our Results" className="text-h2 mt-4" />
+          <SplitText id="results-heading" text="See Our Results" className="type-h2 mt-4" />
           <Reveal delay={0.15}>
             <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-charcoal-deep">
               Oldland Dental Practice now provides comprehensive, non surgical solutions for those who seek to improve and

@@ -40,7 +40,7 @@ export function HomeHero() {
           <motion.p {...fade(0)} className="eyebrow text-on-dark-muted">
             Dentist in Oldland Common, Bristol
           </motion.p>
-          <SplitText as="h1" text="Welcome To Oldland Dental" immediate delay={0.15} className="text-h1 mt-5 text-on-dark" />
+          <SplitText as="h1" text="Welcome To Oldland Dental" immediate delay={0.15} className="type-h1 mt-5 text-on-dark" />
           <motion.p {...fade(0.55)} className="mt-6 max-w-[34rem] text-lg leading-relaxed text-on-dark/85 md:text-xl">
             We have been an established dental practice in Oldland Common, Bristol for over 20 years and pride ourselves on
             offering the very best in patient care in a warm and homely environment.

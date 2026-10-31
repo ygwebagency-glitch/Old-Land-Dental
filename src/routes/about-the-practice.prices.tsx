@@ -128,7 +128,7 @@ function PricesPage() {
       <div className="mt-10 space-y-14">
         {showPlan ? (
           <section id="practice-plan" className="scroll-mt-48" aria-labelledby="pp-h">
-            <h2 id="pp-h" className="text-h3">Practice Plan</h2>
+            <h2 id="pp-h" className="type-h3">Practice Plan</h2>
             <p className="mt-2 text-ink-muted italic">{practicePlan.note}</p>
             <RevealGroup className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {practicePlan.levels.map((l) => (
@@ -157,7 +157,7 @@ function PricesPage() {
         {filtered.map((c) => (
           <section key={c.id} id={c.id} className="scroll-mt-48" aria-labelledby={`${c.id}-h`}>
             <Reveal>
-              <h2 id={`${c.id}-h`} className="text-h3">
+              <h2 id={`${c.id}-h`} className="type-h3">
                 {c.title}
               </h2>
               {c.note ? <p className="mt-2 text-ink-muted italic">{c.note}</p> : null}

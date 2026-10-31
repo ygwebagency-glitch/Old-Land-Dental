@@ -41,7 +41,7 @@ function TreatmentsPage() {
             >
               <SmartImage imageKey={t.image} aspect="4/3" imgClassName="transition-transform duration-700 group-hover:scale-[1.06]" />
               <div className="flex flex-1 flex-col p-6">
-                <h2 className="text-h3">{t.title}</h2>
+                <h2 className="type-h3">{t.title}</h2>
                 <p className="mt-3 line-clamp-4 flex-1 text-[0.98rem] text-ink-muted">{t.short}</p>
                 <span className="mt-5 inline-flex items-center gap-2 font-bold text-teal-dark">
                   Find out more <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

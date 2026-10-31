@@ -114,7 +114,7 @@ function TreatmentPage() {
       <CtaBand />
 
       <div className="mt-14">
-        <SplitText as="h2" text="Related treatments" className="text-h3" />
+        <SplitText as="h2" text="Related treatments" className="type-h3" />
         <RevealGroup as="ul" className="mt-5 flex flex-wrap gap-2">
           {related.map((r) => (
             <RevealItem as="li" key={r.slug}>

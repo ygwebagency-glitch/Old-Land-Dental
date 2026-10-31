@@ -43,7 +43,7 @@ export function PageHero({
           <Breadcrumbs crumbs={crumbs} light />
         </motion.div>
         {eyebrow ? <p className="eyebrow mt-5 text-on-dark-muted">{eyebrow}</p> : null}
-        <SplitText as="h1" text={title} immediate delay={0.1} className="text-h1 mt-4 max-w-4xl text-on-dark" />
+        <SplitText as="h1" text={title} immediate delay={0.1} className="type-h1 mt-4 max-w-4xl text-on-dark" />
         {children}
       </motion.div>
     </section>

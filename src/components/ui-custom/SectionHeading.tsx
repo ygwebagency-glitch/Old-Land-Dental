@@ -27,7 +27,7 @@ export function SectionHeading({
           <p className={cn("eyebrow mb-4", light && "text-on-dark-muted")}>{eyebrow}</p>
         </Reveal>
       ) : null}
-      <SplitText text={title} as={as} className={cn(as === "h2" ? "text-h2" : "text-h3", light && "text-on-dark")} />
+      <SplitText text={title} as={as} className={cn(as === "h2" ? "type-h2" : "type-h3", light && "text-on-dark")} />
       {intro ? (
         <Reveal delay={0.15}>
           <div className={cn("mt-5 text-lg text-ink-muted", align === "center" && "mx-auto", light && "text-on-dark-muted")}>{intro}</div>

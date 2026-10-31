@@ -38,7 +38,7 @@ function StackCard({ card, i, n, progress, reduced }: { card: Card; i: number; n
         <div className="order-2 flex flex-col justify-between gap-8 p-7 sm:p-10 md:order-1 md:p-14">
           <div>
             <span className="font-display text-[clamp(3.5rem,8vw,7rem)] leading-none text-charcoal/15">{String(i + 1).padStart(2, "0")}</span>
-            <h3 className="text-h2 mt-2">{card.title}</h3>
+            <h3 className="type-h2 mt-2">{card.title}</h3>
             <p className="mt-5 max-w-[52ch] text-[1.02rem] text-ink-muted md:text-lg">{card.text}</p>
           </div>
           <div>

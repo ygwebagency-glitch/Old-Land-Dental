@@ -115,7 +115,7 @@ function GalleryPage() {
       </RevealGroup>
 
       <div className="mt-14">
-        <SplitText text="Before & after" className="text-h2" />
+        <SplitText text="Before & after" className="type-h2" />
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           <Reveal>
             <BeforeAfter before="ba.1.before" after="ba.1.after" label="Cosmetic result 1" />
