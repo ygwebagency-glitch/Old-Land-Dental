@@ -1,15 +1,18 @@
 import { describe, expect, it } from "vitest";
 import { getOpenStatus } from "@/lib/hours";
 
-// Dates in October 2026 are BST (UTC+1); January is GMT (UTC+0).
+// Late October 2026 onwards and January are GMT (UTC+0); July is BST (UTC+1).
 const london = (iso: string) => new Date(iso);
 
 describe("Open now status (Europe/London)", () => {
   it("is open Monday mid-morning and closes at 1pm", () => {
-    expect(getOpenStatus(london("2026-10-26T09:30:00Z")).label).toBe("Open now · closes 1pm"); // 10:30 BST Mon
+    expect(getOpenStatus(london("2026-10-26T09:30:00Z")).label).toBe("Open now · closes 1pm"); // 9:30 GMT Mon
   });
   it("is closed for lunch between 1pm and 2pm", () => {
-    expect(getOpenStatus(london("2026-10-26T12:30:00Z")).label).toBe("Closed for lunch · reopens 2pm");
+    expect(getOpenStatus(london("2026-10-26T13:30:00Z")).label).toBe("Closed for lunch · reopens 2pm");
+  });
+  it("uses British Summer Time in July (12:30 UTC is 1:30pm lunch)", () => {
+    expect(getOpenStatus(london("2026-07-06T12:30:00Z")).label).toBe("Closed for lunch · reopens 2pm");
   });
   it("closes at 6.30pm on Thursday", () => {
     expect(getOpenStatus(london("2026-10-29T16:00:00Z")).label).toBe("Open now · closes 6.30pm");
