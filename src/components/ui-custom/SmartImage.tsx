@@ -82,8 +82,7 @@ export function SmartImage({
           sizes={sizes}
           loading={priority ? "eager" : "lazy"}
           decoding={priority ? "sync" : "async"}
-          // @ts-expect-error fetchpriority is valid HTML, React 19 accepts lowercase
-          fetchpriority={priority ? "high" : undefined}
+          fetchPriority={priority ? "high" : "auto"}
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
           className={cn(
