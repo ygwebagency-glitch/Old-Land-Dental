@@ -82,13 +82,13 @@ export function ImageReveal({ children, className, delay = 0 }: { children: Reac
       <motion.div
         className="h-full w-full overflow-hidden rounded-[inherit]"
         initial={reduced ? { opacity: 0 } : { clipPath: "inset(0% 0% 100% 0%)" }}
-        animate={inView ? (reduced ? { opacity: 1 } : { clipPath: "inset(0% 0% 0% 0%)" }) : undefined}
+        animate={inView ? (reduced ? { opacity: 1 } : { clipPath: "inset(0% 0% 0% 0%)" }) : {}}
         transition={{ duration: 1.1, delay, ease: EASE }}
       >
         <motion.div
           className="h-full w-full"
           initial={reduced ? false : { scale: 1.15 }}
-          animate={inView ? { scale: 1 } : undefined}
+          animate={inView ? { scale: 1 } : {}}
           transition={{ duration: 1.4, delay, ease: EASE }}
         >
           {children}
