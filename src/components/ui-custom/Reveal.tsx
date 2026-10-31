@@ -1,7 +1,6 @@
 import { motion, useInView, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { EASE, viewportOnce } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 type RevealProps = HTMLMotionProps<"div"> & { delay?: number; y?: number; children: ReactNode };
 
