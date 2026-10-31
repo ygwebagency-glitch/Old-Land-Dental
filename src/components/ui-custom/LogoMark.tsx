@@ -90,7 +90,7 @@ export function Logo({ light, className }: { light?: boolean; className?: string
       width={images.logo.width}
       height={images.logo.height}
       onError={() => setFailed(true)}
-      className={cn("h-9 w-auto transition-[filter] duration-500 lg:h-11", light && "brightness-0 invert", className)}
+      className={cn("h-7 w-auto transition-[filter,height] duration-500 sm:h-8", light && "brightness-0 invert", className)}
     />
   );
 }

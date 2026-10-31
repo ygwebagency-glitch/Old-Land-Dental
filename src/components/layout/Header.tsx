@@ -27,21 +27,21 @@ export function Header() {
       <UtilityBar light={light} />
       <div
         className={cn(
-          "container-site flex items-center justify-between gap-6 transition-[height] duration-500 ease-[var(--ease-premium)]",
+          "container-site flex items-center justify-between gap-4 transition-[height] duration-500 ease-[var(--ease-premium)]",
           scrolled ? "h-[68px]" : "h-[76px] lg:h-[88px]",
         )}
       >
         <Link to="/" aria-label="Oldland Dental — home" className="flex shrink-0 items-center">
-          <Logo light={light} className={cn(scrolled && "lg:h-9")} />
+          <Logo light={light} className={cn(scrolled && "lg:h-7")} />
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <DesktopNav light={light} />
           <div className="hidden items-center gap-2 xl:flex">
             <AppLink
               to="/invisalign"
               className={cn(
-                "inline-flex min-h-11 items-center rounded-full px-5 text-[0.9rem] font-bold transition-colors duration-300",
+                "inline-flex min-h-11 items-center rounded-full px-4 text-[0.86rem] font-bold whitespace-nowrap transition-colors duration-300",
                 light ? "bg-on-dark text-charcoal-deep hover:bg-teal-soft" : "bg-charcoal text-on-dark hover:bg-charcoal-deep",
               )}
             >
@@ -49,7 +49,7 @@ export function Header() {
             </AppLink>
             <AppLink
               to={practice.links.booking}
-              className="inline-flex min-h-11 items-center rounded-full bg-teal-dark px-5 text-[0.9rem] font-bold text-on-dark shadow-soft transition-colors duration-300 hover:bg-charcoal"
+              className="inline-flex min-h-11 items-center rounded-full bg-teal-dark px-4 text-[0.86rem] font-bold whitespace-nowrap text-on-dark shadow-soft transition-colors duration-300 hover:bg-charcoal"
             >
               Book Online
             </AppLink>
