@@ -44,7 +44,7 @@ function LinksPage() {
           <ExternalLink className="size-6 text-teal transition-transform group-hover:translate-x-1" aria-hidden />
         </a>
       </Reveal>
-      <h2 className="text-h3 mt-14 mb-6">Other Useful Sites</h2>
+      <h2 className="type-h3 mt-14 mb-6">Other Useful Sites</h2>
       <RevealGroup className="grid gap-5 md:grid-cols-2">
         {others.map((o) => (
           <RevealItem key={o.name}>

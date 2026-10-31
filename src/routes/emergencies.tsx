@@ -110,7 +110,7 @@ function EmergenciesPage() {
           </Reveal>
 
           <div className="pt-8">
-            <SplitText text="NHS Urgent Dental Care" className="text-h2" />
+            <SplitText text="NHS Urgent Dental Care" className="type-h2" />
             <div className="mt-5 space-y-4">
               {[
                 "If you're experiencing dental pain or have an urgent dental problem, we offer NHS unscheduled care appointments to help relieve your symptoms. These are available for new and existing patients who need urgent help when they are in pain or their oral health needs prompt treatment to prevent significant deterioration.",

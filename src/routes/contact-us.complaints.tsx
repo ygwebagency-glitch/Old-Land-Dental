@@ -31,7 +31,7 @@ function ComplaintsPage() {
       />
 
       <div className="mt-12">
-        <SplitText text="Complaining on behalf of someone else" className="text-h3" />
+        <SplitText text="Complaining on behalf of someone else" className="type-h3" />
         <Reveal>
           <p className="mt-4 max-w-[68ch] text-[1.05rem]">
             Please note that we keep strictly to the rules of confidentiality. If you are complaining on behalf of someone else,
@@ -42,7 +42,7 @@ function ComplaintsPage() {
       </div>
 
       <div className="mt-12">
-        <SplitText text="Complaints Procedure/Policy" className="text-h3" />
+        <SplitText text="Complaints Procedure/Policy" className="type-h3" />
         <Reveal className="mt-5">
           <a
             href={practice.links.complaintsPdf}

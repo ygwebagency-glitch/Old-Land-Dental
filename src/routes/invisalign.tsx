@@ -46,7 +46,7 @@ function InvisalignPage() {
           />
 
           <div className="mt-14">
-            <SplitText text="Why clear aligners?" className="text-h2" />
+            <SplitText text="Why clear aligners?" className="type-h2" />
             <Reveal>
               <p className="mt-4 max-w-[68ch] text-[1.05rem]">
                 To correct an unbalanced smile, a growing number of patients and dentists prefer clear aligners to traditional

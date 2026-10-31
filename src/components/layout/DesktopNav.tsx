@@ -34,7 +34,7 @@ export function DesktopNav({ light }: { light: boolean }) {
 
   return (
     <nav ref={navRef} aria-label="Main" className="hidden xl:block">
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center">
         {mainNav.map((item) => (
           <li key={item.label} className="relative">
             {item.children ? (
@@ -60,7 +60,7 @@ export function DesktopNav({ light }: { light: boolean }) {
 
 const navLinkCls = (light: boolean, active: boolean) =>
   cn(
-    "group/nav relative inline-flex min-h-11 items-center px-2.5 text-[0.92rem] font-semibold transition-colors duration-300",
+    "group/nav relative inline-flex min-h-11 items-center px-2 text-[0.86rem] font-semibold whitespace-nowrap transition-colors duration-300",
     light ? "text-on-dark/90 hover:text-on-dark" : "text-charcoal hover:text-teal-dark",
     active && (light ? "text-on-dark" : "text-teal-dark"),
   );
@@ -146,7 +146,7 @@ function Dropdown({
   };
 
   const chevron = (
-    <ChevronDown aria-hidden className={cn("size-4 transition-transform duration-300", open && "rotate-180")} />
+    <ChevronDown aria-hidden className={cn("size-3.5 transition-transform duration-300", open && "rotate-180")} />
   );
 
   return (
@@ -171,7 +171,7 @@ function Dropdown({
             aria-label={`${item.label} menu`}
             onClick={() => setOpen(!open)}
             onKeyDown={onTriggerKey}
-            className={cn(navLinkCls(light, false), "min-w-7 justify-center px-1")}
+            className={cn(navLinkCls(light, false), "min-w-6 justify-center px-0.5")}
           >
             {chevron}
           </button>

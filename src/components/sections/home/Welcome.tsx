@@ -17,7 +17,7 @@ export function Welcome() {
       <div className="container-site grid gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-24">
         <div>
           <HouseMarkDraw className="mb-8 h-20 w-24 text-charcoal" />
-          <SplitText id="welcome-heading" text="Welcome To Oldland Dental:" className="text-h2" />
+          <SplitText id="welcome-heading" text="Welcome To Oldland Dental:" className="type-h2" />
           <div className="mt-8 max-w-[60ch] space-y-5 text-lg text-ink">
             {paragraphs.map((p, i) => (
               <Reveal key={i} delay={i * 0.08}>

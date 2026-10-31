@@ -71,7 +71,7 @@ function BioDialog({ person, onClose }: { person: Clinician | null; onClose: () 
               </div>
               <div className="p-7 md:p-10">
                 <p className="eyebrow">{person.role}</p>
-                <DialogPrimitive.Title className="text-h2 mt-2">{person.name}</DialogPrimitive.Title>
+                <DialogPrimitive.Title className="type-h2 mt-2">{person.name}</DialogPrimitive.Title>
                 <DialogPrimitive.Description className="mt-3 flex flex-wrap gap-2 text-sm font-semibold">
                   {person.qualifications ? <span className="rounded-full bg-sand px-3 py-1 text-charcoal">{person.qualifications}</span> : null}
                   {person.gdc ? <span className="rounded-full bg-teal-soft px-3 py-1 text-charcoal">GDC No. {person.gdc}</span> : null}
@@ -146,7 +146,7 @@ function TeamPage() {
       </nav>
 
       <section id="t1" className="scroll-mt-40" aria-labelledby="t1-h">
-        <SplitText id="t1-h" text="Dentists" className="text-h2 mb-8" />
+        <SplitText id="t1-h" text="Dentists" className="type-h2 mb-8" />
         <RevealGroup className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {dentists.map((d) => (
             <RevealItem key={d.id}>
@@ -157,7 +157,7 @@ function TeamPage() {
       </section>
 
       <section id="t2" className="mt-20 scroll-mt-40" aria-labelledby="t2-h">
-        <SplitText id="t2-h" text="Hygienist" className="text-h2 mb-8" />
+        <SplitText id="t2-h" text="Hygienist" className="type-h2 mb-8" />
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           <Reveal>
             <PersonCard p={hygienist} onOpen={() => setOpen(hygienist)} />
@@ -166,7 +166,7 @@ function TeamPage() {
       </section>
 
       <section id="t3" className="mt-20 scroll-mt-40" aria-labelledby="t3-h">
-        <SplitText id="t3-h" text="Dental Nurses" className="text-h2 mb-8" />
+        <SplitText id="t3-h" text="Dental Nurses" className="type-h2 mb-8" />
         <Reveal className="overflow-hidden rounded-[24px] shadow-soft">
           <SmartImage imageKey="team.nurses" aspect="4/3" className="md:hidden" />
           <SmartImage imageKey="team.nurses" aspect="16/9" className="hidden md:block" />
@@ -182,7 +182,7 @@ function TeamPage() {
       </section>
 
       <section id="t4" className="mt-20 scroll-mt-40" aria-labelledby="t4-h">
-        <SplitText id="t4-h" text="Administration" className="text-h2 mb-8" />
+        <SplitText id="t4-h" text="Administration" className="type-h2 mb-8" />
         <RevealGroup as="ul" className="grid gap-3 sm:grid-cols-2">
           {administration.map((n) => (
             <RevealItem as="li" key={n} className="rounded-[20px] bg-sand p-5">

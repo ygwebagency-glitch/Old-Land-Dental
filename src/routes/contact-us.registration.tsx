@@ -51,7 +51,7 @@ function RegistrationPage() {
       </div>
 
       <Reveal className="mt-14 rounded-[28px] bg-sand p-8 md:p-10">
-        <h2 className="text-h3">What your £70 new-patient consultation includes</h2>
+        <h2 className="type-h3">What your £70 new-patient consultation includes</h2>
         <RevealGroup as="ul" className="mt-6 grid gap-3 sm:grid-cols-2">
           {newPatientIncludes.map((i) => (
             <RevealItem as="li" key={i} className="flex items-start gap-3 rounded-[18px] bg-card p-4">

@@ -36,7 +36,7 @@ export function FeatureCards() {
                 <span className="mb-8 flex size-20 items-center justify-center rounded-full bg-teal-soft text-charcoal transition-transform duration-500 group-hover/tilt:-translate-y-1.5 group-hover/tilt:animate-float">
                   <Icon className="size-11" />
                 </span>
-                <h3 className="text-h3">{title}</h3>
+                <h3 className="type-h3">{title}</h3>
                 <p className="mt-3 mb-8 flex-1 text-ink-muted">{text}</p>
                 <Btn to={to} variant="ghost" size="sm" arrow>
                   Discover More

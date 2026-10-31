@@ -62,7 +62,7 @@ export function SmartImage({
       className={cn("overflow-hidden bg-sand", fill ? "absolute inset-0" : "relative w-full", className)}
       style={{ ...(fill || finalAspect === "none" ? {} : { aspectRatio: finalAspect }), ...style }}
     >
-      {!loaded && !failed ? <div aria-hidden className="absolute inset-0 animate-shimmer" /> : null}
+      {!loaded && !failed && !priority ? <div aria-hidden className="absolute inset-0 animate-shimmer" /> : null}
       {failed ? (
         <div
           role="img"
@@ -82,13 +82,12 @@ export function SmartImage({
           sizes={sizes}
           loading={priority ? "eager" : "lazy"}
           decoding={priority ? "sync" : "async"}
-          // @ts-expect-error fetchpriority is valid HTML, React 19 accepts lowercase
-          fetchpriority={priority ? "high" : undefined}
+          fetchPriority={priority ? "high" : "auto"}
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
           className={cn(
             "absolute inset-0 h-full w-full transition-opacity duration-700 ease-[var(--ease-premium)]",
-            loaded ? "opacity-100" : "opacity-0",
+            loaded || priority ? "opacity-100" : "opacity-0",
             imgClassName,
           )}
           style={{ objectFit: "cover", objectPosition: finalFocal, ...imgStyle }}

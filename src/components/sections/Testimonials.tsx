@@ -93,8 +93,8 @@ export function Testimonials() {
             <Stars />
           </Reveal>
 
-          <div className="relative mt-10 grid min-h-[22rem] place-items-center sm:min-h-[18rem] md:min-h-[16rem]">
-            <Quote aria-hidden className="absolute -top-6 left-1/2 size-28 -translate-x-1/2 text-blush/50" />
+          <div className="relative mt-20 grid min-h-[22rem] place-items-center sm:min-h-[18rem] md:min-h-[16rem]">
+            <Quote aria-hidden className="absolute -top-14 left-1/2 size-12 -translate-x-1/2 text-blush" />
             <AnimatePresence mode="wait" initial={false}>
               <motion.figure
                 key={index}

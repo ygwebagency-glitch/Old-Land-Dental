@@ -125,7 +125,7 @@ export function TreatmentsCarousel({ title = "Dental Treatments" }: { title?: st
                     imgClassName="transition-transform duration-[900ms] ease-[var(--ease-premium)] group-hover:scale-[1.06]"
                   />
                   <div className="flex flex-1 flex-col p-6 md:p-7">
-                    <h3 className="text-h3">{t.title}</h3>
+                    <h3 className="type-h3">{t.title}</h3>
                     <p className="mt-3 line-clamp-4 flex-1 text-[0.98rem] text-ink-muted">{t.short}</p>
                     <span className="mt-6 inline-flex items-center gap-2 font-bold text-teal-dark">
                       Find out more <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

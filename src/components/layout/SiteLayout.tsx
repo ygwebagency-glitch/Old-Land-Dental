@@ -1,6 +1,6 @@
 import { useRouterState } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { EASE } from "@/lib/motion";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -12,9 +12,9 @@ import { SiteUIProvider } from "./site-ui";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const first = useRef(true);
-  const isFirst = first.current;
-  first.current = false;
+  // Animate route changes only after hydration (SSR markup renders fully visible).
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
 
   return (
     <SiteUIProvider>
@@ -33,7 +33,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         key={pathname}
         tabIndex={-1}
         className="outline-none"
-        initial={isFirst ? false : { opacity: 0, y: 12 }}
+        initial={hydrated ? { opacity: 0, y: 12 } : false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: EASE }}
       >

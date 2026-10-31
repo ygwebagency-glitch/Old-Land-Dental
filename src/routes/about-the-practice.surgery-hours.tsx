@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about-the-practice/surgery-hours")({
 function HoursPage() {
   return (
     <InnerPage hero="heroAbout" title="Surgery Hours" crumbs={crumbsFor.about("Surgery Hours")} group="about">
-      <SplitText text="Normal Opening Hours" className="text-h2" />
+      <SplitText text="Normal Opening Hours" className="type-h2" />
       <Reveal>
         <p className="mt-4 text-lg text-ink">Our normal surgery hours are listed below.</p>
       </Reveal>

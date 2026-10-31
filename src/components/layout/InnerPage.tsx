@@ -33,7 +33,7 @@ export function InnerPage({
       <PageHero image={hero} title={title} crumbs={crumbs} />
       <div className="container-site py-14 md:py-20">
         {group ? (
-          <div className="grid gap-x-16 lg:grid-cols-[240px_minmax(0,1fr)]">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-x-16 lg:grid-cols-[240px_minmax(0,1fr)]">
             <SideNav group={group} />
             <div className="min-w-0">{children}</div>
           </div>

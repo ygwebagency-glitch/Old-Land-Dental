@@ -15,13 +15,13 @@ export const isExternal = (to: string) => /^(https?:|mailto:|tel:)/.test(to);
  * router; http(s) links open in a new tab with noopener; tel/mailto are plain.
  */
 export const AppLink = forwardRef<HTMLAnchorElement, Props>(function AppLink(
-  { to, children, activeExact = true, ...rest },
+  { to, children, activeExact = true, target, ...rest },
   ref,
 ) {
   if (isExternal(to)) {
     const web = /^https?:/.test(to);
     return (
-      <a ref={ref} href={to} {...(web ? { target: "_blank", rel: "noopener noreferrer" } : {})} {...rest}>
+      <a ref={ref} href={to} {...(web ? { target: "_blank", rel: "noopener noreferrer" } : target ? { target } : {})} {...rest}>
         {children}
       </a>
     );

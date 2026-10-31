@@ -25,7 +25,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-sand px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-h2">This page didn't load</h1>
+        <h1 className="type-h2">This page didn't load</h1>
         <p className="mt-3 text-ink-muted">Something went wrong on our end. You can try refreshing or head back home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
