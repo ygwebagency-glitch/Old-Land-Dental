@@ -9,6 +9,7 @@ import { practice, external } from "@/data/practice";
 import { AppLink } from "@/components/ui-custom/AppLink";
 import { Logo } from "@/components/ui-custom/LogoMark";
 import { OpenNowBadge } from "@/components/ui-custom/OpenNowBadge";
+import { TodayHoursBadge } from "@/components/ui-custom/TodayHoursBadge";
 import { InstagramIcon, PdfIcon } from "@/components/ui-custom/icons";
 import { EASE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -111,7 +112,10 @@ export function MobileDrawer() {
               <address className="text-[0.95rem] not-italic leading-relaxed text-ink">
                 {practice.address.lines.join(", ")}
               </address>
-              <OpenNowBadge />
+              <div className="flex flex-col items-start gap-2">
+                <TodayHoursBadge />
+                <OpenNowBadge />
+              </div>
               <div className="grid grid-cols-2 gap-2 text-sm font-semibold">
                 <a href={practice.links.instagram} {...external} className="flex min-h-11 items-center gap-2 text-charcoal">
                   <InstagramIcon className="size-4" /> Instagram

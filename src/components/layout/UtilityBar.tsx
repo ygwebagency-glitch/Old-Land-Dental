@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone, Search } from "lucide-react";
 import { practice, external } from "@/data/practice";
 import { InstagramIcon } from "@/components/ui-custom/icons";
-import { OpenNowBadge } from "@/components/ui-custom/OpenNowBadge";
+import { TodayHoursBadge } from "@/components/ui-custom/TodayHoursBadge";
 import { useSiteUI } from "./site-ui";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ export function UtilityBar({ light }: { light: boolean }) {
           <InstagramIcon className="size-4" /> Instagram
         </a>
         <div className="flex items-center gap-1">
-          <OpenNowBadge tone={light ? "glass" : "light"} className="mr-2" />
+          <TodayHoursBadge tone={light ? "glass" : "light"} className="mr-2" />
           <a href={practice.email.href} className={cn(linkCls, tone)}>
             <Mail className="size-4" /> Email us
           </a>

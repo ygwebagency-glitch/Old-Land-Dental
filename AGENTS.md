@@ -18,5 +18,7 @@
 - All internal/external links go through `AppLink`/`Btn`, which add target/rel for http(s) links automatically.
 - Typography utilities are named `type-h1/2/3` (not `text-*`) so tailwind-merge does not drop them next to text colour classes.
 - Animations use framer-motion with reduced-motion guards; anything that checks "in view" must observe an unclipped element (clip-path targets never intersect).
+- In-page section tabs use `useSectionSpy` (IntersectionObserver against a line under the sticky bar, click pins the tab during the scroll); programmatic scrolling goes through `lib/smooth-scroll.ts` so it cooperates with Lenis.
+- Opening-hours logic (open-now, today's hours) always uses the practice timezone from `data/hours.ts`, never the visitor's.
 - Time-dependent UI (open-now badge, today highlight) renders after mount to avoid SSR hydration mismatches.
 - The feedback form has no backend: `submitFeedback()` in `lib/forms.ts` opens a prefilled email; replace that function to add a real endpoint.
