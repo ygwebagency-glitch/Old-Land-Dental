@@ -1,0 +1,9 @@
+# Netlify build settings for the TanStack Start app.
+# The @netlify/vite-plugin-tanstack-start adapter (enabled in vite.config.ts when NETLIFY=true)
+# writes static assets to dist/client and the SSR function to .netlify/v1/functions.
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
