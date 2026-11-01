@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ArrowUpRight, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
+import { useSectionSpy } from "@/hooks/use-section-spy";
 import { InnerPage, crumbsFor } from "@/components/layout/InnerPage";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-custom/Reveal";
@@ -30,25 +31,7 @@ const sections = [
   { id: "t3", label: "Dental Nurses" },
   { id: "t4", label: "Administration" },
 ];
-
-function useScrollSpy(ids: string[]) {
-  const [active, setActive] = useState(ids[0]);
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-30% 0px -60% 0px" },
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) io.observe(el);
-    });
-    return () => io.disconnect();
-  }, [ids]);
-  return active;
-}
+const sectionIds = sections.map((s) => s.id);
 
 function BioDialog({ person, onClose }: { person: Clinician | null; onClose: () => void }) {
   return (
@@ -116,7 +99,8 @@ function PersonCard({ p, onOpen }: { p: Clinician; onOpen: () => void }) {
 
 function TeamPage() {
   const [open, setOpen] = useState<Clinician | null>(null);
-  const active = useScrollSpy(sections.map((s) => s.id));
+  const navRef = useRef<HTMLElement>(null);
+  const { active, linkProps } = useSectionSpy(sectionIds, navRef);
 
   return (
     <InnerPage hero="heroAbout" title="Our Team" crumbs={crumbsFor.about("Our Team")} group="about">
@@ -127,12 +111,12 @@ function TeamPage() {
         </p>
       </Reveal>
 
-      <nav aria-label="Team sections" className="sticky top-[calc(var(--header-h)+12px)] z-20 -mx-2 mt-10 mb-12">
+      <nav ref={navRef} aria-label="Team sections" className="sticky top-[calc(var(--header-h)+12px)] z-20 -mx-2 mt-10 mb-12">
         <ul className="no-scrollbar flex gap-2 overflow-x-auto rounded-full border border-line bg-background/90 p-1.5 shadow-soft backdrop-blur-md">
           {sections.map((s) => (
             <li key={s.id} className="shrink-0">
               <a
-                href={`#${s.id}`}
+                {...linkProps(s.id)}
                 className={cn(
                   "inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold whitespace-nowrap transition-colors",
                   active === s.id ? "bg-charcoal text-on-dark" : "text-charcoal hover:bg-teal-soft",

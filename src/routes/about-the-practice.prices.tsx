@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FileText, Search } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useSectionSpy } from "@/hooks/use-section-spy";
 import { InnerPage, crumbsFor } from "@/components/layout/InnerPage";
 import { Btn } from "@/components/ui-custom/Btn";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui-custom/Reveal";
@@ -23,25 +24,6 @@ export const Route = createFileRoute("/about-the-practice/prices")({
 });
 
 const tabs = [{ id: "practice-plan", label: "Practice Plan" }, ...priceCategories.map((c) => ({ id: c.id, label: c.label }))];
-
-function useSpy(ids: string[]) {
-  const [active, setActive] = useState(ids[0]);
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (vis[0]) setActive(vis[0].target.id);
-      },
-      { rootMargin: "-25% 0px -65% 0px" },
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) io.observe(el);
-    });
-    return () => io.disconnect();
-  }, [ids]);
-  return active;
-}
 
 function Row({ row, q }: { row: PriceRow; q: string }) {
   const from = row.price.startsWith("From");
@@ -66,8 +48,9 @@ function Row({ row, q }: { row: PriceRow; q: string }) {
 function PricesPage() {
   const [q, setQ] = useState("");
   const ids = useMemo(() => tabs.map((t) => t.id), []);
-  const active = useSpy(ids);
   const query = q.trim().toLowerCase();
+  const barRef = useRef<HTMLDivElement>(null);
+  const { active, linkProps } = useSectionSpy(ids, barRef, query);
 
   const filtered = priceCategories
     .map((c) => ({
@@ -95,13 +78,13 @@ function PricesPage() {
       </Reveal>
 
       {/* Sticky tabs + filter */}
-      <div className="sticky top-[calc(var(--header-h)+8px)] z-20 mt-12 -mx-2 space-y-2 rounded-[22px] border border-line bg-background/92 p-2 shadow-soft backdrop-blur-md">
+      <div ref={barRef} className="sticky top-[calc(var(--header-h)+8px)] z-20 mt-12 -mx-2 space-y-2 rounded-[22px] border border-line bg-background/92 p-2 shadow-soft backdrop-blur-md">
         <nav aria-label="Price categories">
           <ul className="no-scrollbar flex gap-1.5 overflow-x-auto">
             {tabs.map((t) => (
               <li key={t.id} className="shrink-0">
                 <a
-                  href={`#${t.id}`}
+                  {...linkProps(t.id)}
                   className={cn(
                     "inline-flex min-h-10 items-center rounded-full px-3.5 text-sm font-semibold whitespace-nowrap transition-colors",
                     active === t.id ? "bg-charcoal text-on-dark" : "text-charcoal hover:bg-teal-soft",

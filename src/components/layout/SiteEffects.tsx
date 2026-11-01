@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AppLink } from "@/components/ui-custom/AppLink";
 import { RedCross } from "@/components/ui-custom/icons";
 import { useScrollState } from "@/hooks/use-scroll-y";
+import { registerLenis } from "@/lib/smooth-scroll";
 import { cn } from "@/lib/utils";
 
 /** 3px teal reading-progress bar at the very top. */
@@ -28,6 +29,7 @@ export function SmoothScroll() {
       if (cancelled) return;
       const lenis = new Lenis({ lerp: 0.11, anchors: { offset: -96 } });
       lenisRef.current = lenis;
+      registerLenis(lenis);
       const loop = (t: number) => {
         lenis.raf(t);
         raf = requestAnimationFrame(loop);
@@ -37,6 +39,7 @@ export function SmoothScroll() {
     return () => {
       cancelled = true;
       cancelAnimationFrame(raf);
+      registerLenis(null);
       lenisRef.current?.destroy();
       lenisRef.current = null;
     };
