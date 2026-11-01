@@ -10,7 +10,7 @@ import netlify from "@netlify/vite-plugin-tanstack-start";
 // Netlify sets NETLIFY=true in its build environment. Only then do we swap Lovable's
 // built-in Nitro deploy step for the official Netlify adapter, so Lovable previews and
 // Lovable publishing keep their existing (Cloudflare/Nitro) behaviour untouched.
-const isNetlifyBuild = process.env.NETLIFY === "true";
+const isNetlifyBuild = process.env["NETLIFY"] === "true";
 
 export default defineConfig({
   tanstackStart: {

@@ -22,3 +22,4 @@
 - Opening-hours logic (open-now, today's hours) always uses the practice timezone from `data/hours.ts`, never the visitor's.
 - Time-dependent UI (open-now badge, today highlight) renders after mount to avoid SSR hydration mismatches.
 - The feedback form has no backend: `submitFeedback()` in `lib/forms.ts` opens a prefilled email; replace that function to add a real endpoint.
+- Netlify deploys use `@netlify/vite-plugin-tanstack-start`, enabled in `vite.config.ts` only when `NETLIFY=true` (with Lovable's Nitro step turned off there); Lovable preview/publish keep the built-in Nitro adapter, because two deploy adapters conflict and the Netlify dev middleware would break the preview.
