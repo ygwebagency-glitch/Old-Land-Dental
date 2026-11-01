@@ -31,6 +31,7 @@ export function useSectionSpy(ids: readonly string[], barRef: RefObject<HTMLElem
     if (pinned.current) return;
     const list = idsRef.current;
     const first = list.find((id) => visible.current.has(id));
+    (window as any).__spy = { vis: [...visible.current], first };
     if (first) {
       setActive(first);
       return;
