@@ -37,9 +37,10 @@ export function useSectionSpy(ids: readonly string[], barRef: RefObject<HTMLElem
     }
     // Nothing on or below the line: we are either above all sections or past the last one.
     const present = list.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
-    const last = present[present.length - 1];
-    if (last && last.getBoundingClientRect().bottom < barOffset()) setActive(last.id);
-    else if (present[0]) setActive(present[0].id);
+    const firstEl = present[0];
+    const lastEl = present[present.length - 1];
+    if (firstEl && firstEl.getBoundingClientRect().top > barOffset()) setActive(firstEl.id);
+    else if (lastEl) setActive(lastEl.id);
   }, [barOffset]);
 
   useEffect(() => {

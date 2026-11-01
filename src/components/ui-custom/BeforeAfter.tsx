@@ -1,24 +1,78 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { animate, useReducedMotion, type AnimationPlaybackControls } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ImageKey } from "@/config/images";
 import { SmartImage } from "./SmartImage";
 import { cn } from "@/lib/utils";
 
-/** Draggable before/after comparison. Arrow keys move the handle. */
+const START = 50;
+/** Intro sweep: a little left, a little right, back to centre. */
+const INTRO = [START, START - 9, START + 9, START];
+
+/**
+ * Draggable before/after comparison. Arrow keys move the handle.
+ * Plays a one-off gentle intro sweep the first time it scrolls into view (skipped for
+ * reduced motion, cancelled the moment the visitor touches the slider).
+ */
 export function BeforeAfter({
   before,
   after,
   label,
   className,
+  introDelay = 0,
 }: {
   before: ImageKey;
   after: ImageKey;
   label: string;
   className?: string;
+  /** Extra delay (seconds) so side-by-side sliders sweep one after another. */
+  introDelay?: number;
 }) {
-  const [pos, setPos] = useState(50);
+  const [pos, setPos] = useState(START);
+  const figureRef = useRef<HTMLElement>(null);
   const box = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+  const touched = useRef(false);
+  const intro = useRef<AnimationPlaybackControls | null>(null);
+  const reduced = useReducedMotion();
+
+  const takeOver = useCallback(() => {
+    touched.current = true;
+    intro.current?.stop();
+    intro.current = null;
+  }, []);
+
+  useEffect(() => {
+    const el = figureRef.current;
+    if (reduced || !el) return;
+    let timer = 0;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        io.disconnect();
+        timer = window.setTimeout(() => {
+          if (touched.current) return;
+          intro.current = animate(START, INTRO, {
+            duration: 2.8,
+            times: [0, 0.3, 0.72, 1],
+            ease: ["easeInOut", "easeInOut", "easeInOut"],
+            onUpdate: (v) => setPos(v),
+            onComplete: () => {
+              intro.current = null;
+              setPos(START);
+            },
+          });
+        }, 500 + introDelay * 1000);
+      },
+      { threshold: 0.6 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(timer);
+      intro.current?.stop();
+    };
+  }, [reduced, introDelay]);
 
   const setFromX = useCallback((clientX: number) => {
     const r = box.current?.getBoundingClientRect();
@@ -28,11 +82,12 @@ export function BeforeAfter({
   }, []);
 
   return (
-    <figure className={cn("w-full", className)}>
+    <figure ref={figureRef} className={cn("w-full", className)}>
       <div
         ref={box}
         className="relative aspect-[4/3] w-full touch-pan-y overflow-hidden rounded-[24px] bg-sand shadow-soft select-none"
         onPointerDown={(e) => {
+          takeOver();
           dragging.current = true;
           (e.target as Element).setPointerCapture?.(e.pointerId);
           setFromX(e.clientX);
@@ -60,6 +115,7 @@ export function BeforeAfter({
           aria-valuemax={100}
           aria-valuenow={Math.round(pos)}
           aria-valuetext={`${Math.round(pos)}% before image shown`}
+          onFocus={takeOver}
           onKeyDown={(e) => {
             if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
               e.preventDefault();

@@ -60,19 +60,6 @@ export function HomeHero() {
           </motion.div>
         </div>
       </motion.div>
-
-      <motion.div
-        aria-hidden
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.8 }}
-      >
-        <span className="flex h-10 w-6 justify-center rounded-full border-2 border-on-dark/60 pt-2">
-          <span className="size-1.5 rounded-full bg-on-dark animate-scroll-dot" />
-        </span>
-        <span className="text-[0.7rem] font-bold tracking-[0.2em] text-on-dark/70 uppercase">Scroll</span>
-      </motion.div>
     </section>
   );
 }

@@ -121,7 +121,7 @@ function GalleryPage() {
             <BeforeAfter before="ba.1.before" after="ba.1.after" label="Cosmetic result 1" />
           </Reveal>
           <Reveal delay={0.1}>
-            <BeforeAfter before="ba.2.before" after="ba.2.after" label="Cosmetic result 2" />
+            <BeforeAfter before="ba.2.before" after="ba.2.after" label="Cosmetic result 2" introDelay={0.25} />
           </Reveal>
         </div>
       </div>
