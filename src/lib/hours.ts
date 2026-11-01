@@ -71,3 +71,23 @@ export function getOpenStatus(date: Date = new Date()): OpenStatus {
   }
   return { state: "closed", opensDay: "", opensAt: "", label: "Closed" };
 }
+
+export type TodayHours = {
+  /** Full day name in the practice's timezone, e.g. "Saturday" */
+  day: string;
+  closed: boolean;
+  /** "9am – 1pm & 2pm – 6pm", or "Closed Today" */
+  hours: string;
+  /** Short line for the announcement bar */
+  label: string;
+};
+
+/** Today's opening hours, using the practice's timezone (not the visitor's) to decide what "today" is. */
+export function getTodayHours(date: Date = new Date()): TodayHours {
+  const today = dayByIndex(londonNow(date).dayIndex);
+  const closed = today.sessions.length === 0;
+  const hoursText = closed
+    ? "Closed Today"
+    : today.sessions.map((s) => `${formatTime(s.open)} – ${formatTime(s.close)}`).join(" & ");
+  return { day: today.day, closed, hours: hoursText, label: `${today.day} · ${hoursText}` };
+}

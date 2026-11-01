@@ -60,7 +60,6 @@ export function HomeHero() {
           </motion.div>
         </div>
       </motion.div>
-
     </section>
   );
 }
